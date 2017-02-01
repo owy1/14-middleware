@@ -18,6 +18,11 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // DONE: use handlebar template to compile articles,
+  // filter an array of Author objects, save to options variable
+  // append to the "Filter by Arthors" in Home page
+  // the "Filter by Categories" is populated by Article.allCategories()
+  // that map and return array of article objects with the selected category
   articleView.populateFilters = function() {
     var options;
     var template = Handlebars.compile($('#option-template').text());
@@ -37,6 +42,10 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // DONE: jQuery selects index page id=filters to render articles
+  // (parent) category/authors (siblings) names (children) and add
+  // the name after / in the address bar, if author name replace whitespace
+  // with + ex. Miss+Alison+Kuvalis
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       var resource = this.id.replace('-filter', '');
@@ -86,6 +95,9 @@
    }; */
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // DONE: jQuery selects index page id=articles to hide id=about and
+  // id=blog-stats, remove previous articles, to render either articles
+  // filtered by category or authors
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
